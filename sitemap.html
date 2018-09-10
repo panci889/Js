@@ -1,58 +1,90 @@
 <style type='text/css'>
-#container {
-    padding: 15px !important;
-    overflow: hidden;
+.flexsearch--wrapper {
+	height: auto;
+	width: auto;
+	max-width: 100%;
+	overflow: hidden;
+	background: transparent;
+	margin: 0;
+	position: static;
+}
+	
+.flexsearch--form {
+	overflow: hidden;
+	position: relative;
+}
+	
+.flexsearch--input-wrapper {
+	padding: 0 66px 0 0;
+	overflow: hidden;
+}
+
+.flexsearch--input {
+  width: 100%;
+}
+
+/***********************
+ * Configurable Styles *
+ ***********************/
+.flexsearch {
+  padding: 20px;
+}
+
+.flexsearch--input {
+box-sizing: content-box;
+    height: 60px;
+    padding: 0 50px 0 10px;
+    border-color: #888;
+    border: 1px solid #000;
+    margin-top: 15px;
+    color: #333;
+    font-size: 20px;
+    -moz-appearance: none;
+    max-width: 100%;
+}
+	
+.flexsearch--submit {
+  position: absolute;
+	right: 0;
+	top: 0;
+	display: block;
+	width: 60px;
+	height: 60px;
+  padding: 0;
+  border: none;
+	margin-top: 20px;
+  margin-right: 5px;
+	background: transparent;
+  color: #888;
+  font-family: 'Helvetica', sans-serif;
+  font-size: 40px;
+  line-height: 60px;
+}
+
+.flexsearch--input:focus {
+  outline: none;
+  border-color: #333;
+}
+
+.flexsearch--input:focus.flexsearch--submit {
+ 	color: #333; 
+}
+
+.flexsearch--submit:hover {
+  color: #333;
+  cursor: pointer;
+}
+
+::-webkit-input-placeholder {
+	color: #888;  
+}
+
+input:-moz-placeholder {
+  color: #888
 }
 #table-outer {
     display: none;
 }
-#post-searcher {
-    display: table;
-    width: 100%;
-    margin: 0 auto 25px;
-    box-shadow: 0px 0px 10px rgba(50,50,50,0.17);
-    overflow: hidden;
-    background-color: #fff;
-    border: 1px solid #f3f3f3;
-}
-#post-searcher div.cell {
-  display: table-cell;
-}
-#post-searcher div.cell:last-child {
-  width: 1px;
-}
-
-input[type=search], #feed-q {  
-  width: 100%;
-  height: 37px;
-
-  -moz-box-sizing: border-box;
-  box-sizing: border-box;
-  
-  font-family: inherit;
-  font-size: inherit;
-}
-
-input[type=search] {
-  margin: 0;
-  padding: 0 10px;
-  border: 0;
-}
-
-input[type=button], input[type=submit], input[type=reset] {
-padding: 0 20px;
-color: #fff;
-background-color: #f9f9f9;
-border-top-right-radius: 5px;
-border-bottom-right-radius: 5px;
-background-image: url("data:image/svg+xml,%3Csvg focusable='false' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M15.5 14h-.79l-.28-.27A6.471 6.471 0 0 0 16 9.5 6.5 6.5 0 1 0 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z'%3E%3C/path%3E%3C/svg%3E");
-background-position: center;
-background-repeat: no-repeat;
-margin: 0;
-height: 37.1px;
-cursor: pointer;
-border: none;
-	}
 .hiden {
 
     display: none !important;}
@@ -91,12 +123,16 @@ border: none;
 <label for="feed-order">Urutkan artikel berdasarkan:</label></td> <td><select id="feed-order"> <option selected="" value="published">Artikel terbaru</option> <option value="updated">Artikel yang terakhir di update</option> </select></td></tr><tr><td><label for="label-sorter">Filter artikel berdasarkan kategori:</label></td> <td><select disabled="" id="label-sorter"> <option selected="">Loading....</option> </select></td></tr>
 </tbody></table>
 </div>
-<div id="container">
-<form id="post-searcher">
-  <div class="cell"><input id="feed-q" itemprop="query-input" name="search_term_string" placeholder="Ketik dan Tekan Submit atau Kirim" type="search" required="	
-http://schema.org/True"/></div>
- <div class="cell"><input id="submit" type="submit" value=""></div>
+<div id="flexsearch">
+<div class="flexsearch--wrapper">
+<form class="flexsearch--form">
+<div class="flexsearch--input-wrapper">
+<input class="flexsearch--input" id="feed-q" itemprop="query-input" name="search_term_string" placeholder="Ketik dan Tekan Submit atau Kirim" type="search" required="	
+http://schema.org/True"/>
+</div>
+<input class="flexsearch--submit" type="submit" value="&#10140;">
 </form>
+</div>
 </div>
 <header id="result-desc"></header>
 <ul id="feed-container"></ul>
